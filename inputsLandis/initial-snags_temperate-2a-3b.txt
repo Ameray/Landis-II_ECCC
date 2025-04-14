@@ -1,0 +1,24 @@
+LandisData "ForC Succession"
+
+SnagData
+
+>>	species	AgeAtDeath	TimeSinceDeath	Cause
+
+ACER.SAC	30	15	other
+ACER.SAC	90	15	other
+ACER.SAC	150	15	other
+ACER.SAC	30	30	other
+ACER.SAC	90	30	other
+ACER.SAC	150	30	other
+ACER.SAC	30	45	other
+ACER.SAC	90	45	other
+ACER.SAC	150	45	other
+PICE.MAR	30	15	other
+PICE.MAR	90	15	other
+PICE.MAR	150	15	other
+PICE.MAR	30	30	other
+PICE.MAR	90	30	other
+PICE.MAR	150	30	other
+PICE.MAR	30	45	other
+PICE.MAR	90	45	other
+PICE.MAR	150	45	other

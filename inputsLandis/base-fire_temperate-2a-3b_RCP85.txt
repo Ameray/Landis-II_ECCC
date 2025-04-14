@@ -1,0 +1,32 @@
+LandisData "Base Fire" 
+Timestep  1 
+>> Fire Region Parameters
+>> Fire
+>> Region Map Mean Min Max Ignition
+>> Name Code Size Size Size Prob k
+>> ---------------------------------------------
+ZONE_5_RCP85_10 12 2066 200 46230 9.93742025201625e-07 31
+ZONE_5_RCP85_40 18 2586 200 46230 1.68073370661419e-06 31
+ZONE_5_RCP85_70 24 2763 200 46230 2.72501093191694e-06 31
+InitialFireRegionsMap  fire-regions_10.tif  
+DynamicFireRegionTable << Optional 
+>>Year FileName 
+21 fire-regions_40.tif 
+51 fire-regions_70.tif 
+FuelCurveTable 
+>> Ecoregion S5 S4 S3 S2 S1 
+ZONE_5_RCP85_10 -1 -1 -1 -1 10
+ZONE_5_RCP85_40 -1 -1 -1 -1 10
+ZONE_5_RCP85_70 -1 -1 -1 -1 10
+WindCurveTable
+FireDamageTable
+>> Cohort Age FireSeverity -
+>> % of longevity FireTolerance
+>> -------------- -------------- anyway, aussumer que les feux tuent tout le monde ici; à modifier pour l'ouest
+20% -2
+50% -1
+85% 0
+100% 1
+MapNames fire/severity_{timestep}.tif 
+LogFile fire/log.csv 
+SummaryLogFile fire/summary-log.csv 
