@@ -1,9 +1,9 @@
 LandisData "BDA Agent"
 BDAAgentName budworm1
 BDPCalibrator 1
-SRDMode mean 
-StartYear 
-EndYear 
+SRDMode mean
+StartYear 1
+EndYear 7
 >> Regional Outbreak Inputs
 OutbreakPattern CyclicUniform
 MaxInterval 0
@@ -13,27 +13,27 @@ TemporalType variablepulse
 MinROS 0
 MaxROS 3
 >> Dispersal Parameters
-Dispersal no
-DispersalRate 50000
+Dispersal yes
+DispersalRate 20000
 EpidemicThresh 0.5
-InitialEpicenterNum 0
+InitialEpicenterNum 1
 OutbreakEpicenterCoeff 0.01
-OutbreakEpicenterThresh 0
+OutbreakEpicenterThresh 1
 SeedEpicenter yes
-SeedEpicenterMax 5
-SeedEpicenterCoeff 0.25
+SeedEpicenterMax 3
+SeedEpicenterCoeff 0.1
 DispersalTemplate MaxRadius
 >> Neighborhood Resource Inputs
 NeighborFlag yes
 NeighborSpeedUp none
 NeighborRadius 1000
 NeighborShape uniform
-NeighborWeight 0.01
+NeighborWeight 1
 >> Intensity Class Thresholds
 IntensityClass2_BDP 0.33
 IntensityClass3_BDP 0.67
 BDASpeciesParameters
 >> SpeciesName     Age1 SRDProb1  Age2 SRDProb2  Age3 SRDProb3  Age1 VulnProb1  Age2 VulnProb2  Age3 VulnProb3  fuel
-ABIE.BAL 0 0.25 50 0.5 80 0.7 0 0 50 0.2 80 0.3 yes
-PICE.GLA 0 0.18 50 0.3 80 0.5 0 0 50 0.08 80 0.2 yes
-PICE.MAR 0 0.07 50 0.14 80 0.3 0 0.05 50 0.1 999 0.2 yes
+ABIE.BAL 0 0.25 30 0.5 50 1 0 0.2 30 0.42 50 0.85 yes
+PICE.GLA 0 0.18 30 0.36 50 0.5 0 0.1 30 0.15 50 0.3 yes
+PICE.MAR 0 0.07 30 0.14 50 0.28 0 0.13 30 0.2 999 1 yes
