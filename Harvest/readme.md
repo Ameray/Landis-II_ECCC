@@ -86,7 +86,7 @@ This section outlines the harvest rules applied to each prescription in the Biom
 
 ---
 
-### ✂️ **Commercial Thinning**
+### 🌳 **Commercial Thinning**
 - **Goal:** Reduce stand density and enhance growth of residual trees.
 - **Rationale:** Especially effective for mid-tolerant and tolerant species that benefit from reduced competition.
 
