@@ -1,6 +1,4 @@
-
-##🌲 LANDIS-II Biomass Harvest Prescriptions
-
+# 🌲 LANDIS-II Biomass Harvest Prescriptions
 This repository provides a full implementation of **Biomass Harvest** prescriptions for use with the LANDIS-II model. The strategy includes both **even-aged** and **uneven-aged silvicultural systems**, targeting species based on **shade tolerance**, **maturity age**, **longevity**, and **ecological role** in boreal and mixedwood forests.
 
 ---
