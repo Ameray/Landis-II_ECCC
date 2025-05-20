@@ -1,0 +1,203 @@
+LandisData "Biomass Harvest" 
+Timestep 1
+ManagementAreas mgmt-areas.tif
+Stands stand-map.tif
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>> Clearcut systems
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+>>>> Prescription 1
+>> CPRS:Cut with Protection of Regeneration and Soils for shade-intolerant and intermediate species.
+Prescription CPRS
+StandRanking Economic
+PICE.MAR       0 60
+ABIE.BAL       0 60
+PINU.BAN       0 60
+PINU.STR     100 60
+PINU.RES     100 60
+THUJ.SPP.ALL 100 80
+TSUG.CAN     100 60
+ACER.RUB     100 60
+LARI.LAR       0 60
+BETU.PAP     100 60
+BETU.ALL     100 60
+PICE.RUB       0 60
+POPU.TRE     100 60
+MinimumAge 60
+MinimumTimeSinceLastHarvest 50
+SiteSelection CompleteStandSpread 1 10
+CohortsRemoved SpeciesList
+PICE.MAR     1-29(0%) 30-200(95%)
+ABIE.BAL     1-29(0%) 30-150(95%)
+PINU.BAN     1-19(0%) 20-150(95%)
+PINU.STR     1-19(0%) 20-300(95%)
+PINU.RES     1-39(0%) 40-200(95%)
+THUJ.SPP.ALL 1-29(0%) 30-300(95%)
+TSUG.CAN     1-59(0%) 60-300(95%)
+ACER.RUB     1-9(0%)  10-150(95%)
+LARI.LAR     1-39(0%) 40-150(95%)
+BETU.PAP     1-19(0%) 20-150(95%)
+BETU.ALL     1-39(0%) 40-300(95%)
+PICE.RUB     1-29(0%) 30-300(95%)
+POPU.TRE     1-19(0%) 20-150(95%)
+
+>>>> Prescription 2
+>> SeedTree: Retains overstory seed trees. Keep all the old forest stand 
+Prescription SeedTree
+StandRanking Economic
+PICE.MAR       0 60
+ABIE.BAL       0 60
+PINU.BAN       0 60
+PINU.STR     100 60
+PINU.RES     100 60
+THUJ.SPP.ALL 100 60
+TSUG.CAN     100 60
+ACER.RUB     100 60
+LARI.LAR       0 60
+BETU.PAP     100 60
+BETU.ALL     100 60
+PICE.RUB       0 60
+POPU.TRE     100 60
+MinimumAge 60
+MinimumTimeSinceLastHarvest 50
+SiteSelection CompleteStandSpread 1 10
+CohortsRemoved SpeciesList
+PICE.MAR     1-179(100%) 190-200(0%)
+ABIE.BAL     1-129(100%) 140-150(0%)
+PINU.BAN     1-129(100%) 140-150(0%)
+PINU.STR     1-289(100%) 290-300(0%)
+PINU.RES     1-189(100%) 190-200(0%)
+THUJ.SPP.ALL 1-289(100%) 290-300(0%)
+TSUG.CAN     1-289(100%) 290-300(0%)
+ACER.RUB     1-139(100%) 140-150(0%)
+LARI.LAR     1-139(100%) 140-150(0%)
+BETU.PAP     1-139(100%) 140-150(0%)
+BETU.ALL     1-289(100%) 290-300(0%)
+PICE.RUB     1-279(100%) 290-300(0%)
+POPU.TRE     1-139(100%) 140-150(0%)
+
+>>>>>>>>>>>>>>>>>>>> Partial cutting systems
+>>>>>>>>>>>>>>>>>>>>
+
+>>>> Prescription 3
+>> Commercial thinning
+Prescription CommercialThinning
+StandRanking Economic
+BETU.PAP     100 60
+BETU.ALL     100 60
+PICE.RUB       0 60
+PICE.GLA       0 60
+POPU.TRE     100 60
+ACER.SAH     100 60
+FAGU.GRA     100 60
+TSUG.CAN     100 60
+ACER.RUB     100 60
+QUER.RUB     100 60
+MinimumAge 40
+SiteSelection PartialStandSpread 1 5
+CohortsRemoved SpeciesList
+BETU.PAP     1-19(0%) 20-150(25%)
+BETU.ALL     1-39(0%) 40-150(25%)
+PICE.RUB     1-29(0%) 30-300(25%)
+PICE.GLA     1-29(0%) 30-200(25%)
+POPU.TRE     1-19(0%) 20-150(25%)
+ACER.SAH     1-39(0%) 40-300(25%)
+FAGU.GRA     1-39(0%) 40-250(25%)
+TSUG.CAN     1-59(0%) 60-300(25%)
+ACER.RUB     1-9(0%)  10-150(25%)
+QUER.RUB     1-29(0%) 30-250(25%)
+
+>>>> Prescription 4
+>> Regular Shelterwood: Promote regeneration in intermediate to moderately shade-tolerant species.
+Prescription PC1
+StandRanking Economic
+ACER.SAH     100 60
+ACER.RUB     100 60
+FAGU.GRA     100 60
+TSUG.CAN     100 60
+PICE.GLA       0 60
+PICE.RUB       0 60
+BETU.PAP     100 60
+BETU.ALL     100 60
+POPU.TRE     100 60
+QUER.RUB     100 60
+MinimumAge 40
+SiteSelection PartialStandSpread 1 5
+CohortsRemoved SpeciesList
+ACER.SAH     1-39(0%) 40-100(70%) 101-300(0%)
+ACER.RUB     1-9(0%)  10-100(70%)  101-150(0%)
+FAGU.GRA     1-39(0%) 40-100(70%) 101-250(0%)
+TSUG.CAN     1-59(0%) 60-100(70%) 101-300(0%)
+PICE.GLA     1-29(0%) 30-100(70%) 101-200(0%)
+PICE.RUB     1-29(0%) 30-100(70%) 101-300(0%)
+BETU.PAP     1-19(0%) 20-100(70%) 101-150(0%)
+BETU.ALL     1-19(0%) 20-100(70%) 101-150(0%)
+POPU.TRE     1-19(0%) 20-100(70%) 101-150(0%)
+QUER.RUB     1-29(0%) 30-100(70%) 101-250(0%)
+
+>>>> Prescription 5
+>> PC2 – Irregular Shelterwood with Slow Regeneration:
+>> Applied to mature tolerant stands (40–100 yrs), light to moderate canopy opening promotes slow regeneration of shade-tolerant species.
+Prescription PC2
+StandRanking Economic
+ACER.SAH     100 60
+FAGU.GRA     100 60
+TSUG.CAN     100 60
+ABIE.BAL       0 60
+THUJ.SPP.ALL 100 60
+PICE.RUB       0 60
+PICE.GLA       0 60
+
+MinimumAge 40
+MinimumTimeSinceLastHarvest 30
+SiteSelection PartialStandSpread 1 5
+CohortsRemoved SpeciesList
+ACER.SAH     1-40(0%) 41-100(50%) 101-300(0%)
+FAGU.GRA     1-40(0%) 41-100(50%) 101-250(0%)
+TSUG.CAN     1-40(0%) 41-100(50%) 101-300(0%)
+ABIE.BAL     1-40(0%) 41-100(50%) 101-150(0%)
+THUJ.SPP.ALL 1-40(0%) 41-100(50%) 101-300(0%)
+PICE.RUB     1-40(0%) 41-100(50%) 101-300(0%)
+PICE.GLA     1-40(0%) 41-100(50%) 101-200(0%)
+MultipleRepeat 60
+
+>>>> Prescription 6
+>> PC3 – Irregular Shelterwood with Permanent Canopy:
+>> Applied to older, multi-aged tolerant forests; maintains permanent cover and favors long-lived shade-tolerant regeneration
+Prescription PC3
+StandRanking Economic
+TSUG.CAN     100 60
+ACER.SAH     100 60
+FAGU.GRA     100 60
+THUJ.SPP.ALL 100 60
+ABIE.BAL       0 60
+PICE.RUB       0 60
+ACER.RUB     100 60
+MinimumAge 70
+MinimumTimeSinceLastHarvest 30
+SiteSelection PartialStandSpread 1 5
+CohortsRemoved SpeciesList
+TSUG.CAN     1-69(0%) 70-300(50%)
+ACER.SAH     1-69(0%) 70-300(50%)
+FAGU.GRA     1-69(0%) 70-250(50%)
+THUJ.SPP.ALL 1-69(0%) 70-300(50%)
+ABIE.BAL     1-69(0%) 70-150(50%)
+PICE.RUB     1-69(0%) 70-300(50%)
+ACER.RUB     1-69(0%) 70-150(50%)
+MultipleRepeat 60
+
+HarvestImplementations
+>> managedarea     treatment     rate 
+1	CPRS	                 0.22648%
+1	SeedTree	         0.00310%
+1	CommercialThinning     	 0.02076%
+1	PC1	                 0.07432%
+1	PC2	                 0.15954%
+1	PC3	                 0.22646%
+
+
+PrescriptionMaps ".\harvest\prescripts-{timestep}.tif"
+BiomassMaps ".\harvest\biomass-removed-{timestep}.tif"
+EventLog ".\harvest\log.csv"
+SummaryLog ".\harvest\summarylog.csv"
+
