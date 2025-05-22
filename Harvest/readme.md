@@ -34,7 +34,7 @@ Each treatment targets species based on their **shade tolerance**, **regeneratio
 
 | Species Code   | Common Name         | Tolerance | Maturity | Longevity | Primary Treatments                     |
 |----------------|---------------------|-----------|----------|-----------|----------------------------------------|
-| ABIE.BAL       | Balsam fir          | Very tol. | 30       | 150       | CPRS, SeedTree, PC2, PC3               |
+| ABIE.BAL       | Balsam fir          | Very tol. | 30       | 150       | All treatments              |
 | ACER.RUB       | Red maple           | Int.      | 10       | 150       | All treatments                         |
 | ACER.SAH       | Sugar maple         | Very tol. | 40       | 300       | CommThin, PC1, PC2, PC3                |
 | BETU.ALL       | Yellow birch        | Mod tol.  | 40       | 300       | CPRS, CommThin, PC1                    |
