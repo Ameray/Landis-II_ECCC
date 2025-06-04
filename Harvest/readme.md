@@ -1,8 +1,9 @@
 # 🌲 LANDIS-II Biomass Harvest Prescriptions
 
-- This repository provides a full implementation of **Biomass Harvest** prescriptions for use with the LANDIS-II model. The strategy includes both **even-aged** and **uneven-aged silvicultural systems**, targeting species based on **shade tolerance**, **maturity age**, **longevity**, and **ecological role** in boreal and mixedwood forests. 
-- To run harvest_calibration_simPkgs.R,  copy the initial file named /harvest/biomass-harvest.txt into your working directory (dir_path). This file contains the harvest prescription details. Then run simulation using script/Landscape_SimPilot.R.
-- mgmt-areas_temperate-2a-3b.tif :new Managed area excluding protected areas
+- This repository provides a full implementation of **Biomass Harvest** prescriptions for use with the LANDIS-II model. The strategy includes both **even-aged** and **uneven-aged silvicultural systems**, targeting species based on **shade tolerance**, **maturity age**, **longevity**, and **ecological role** in boreal and mixedwood forests.
+- To run `harvest_calibration_simPkgs.R`, copy the initial file named `/harvest/biomass-harvest.txt` into your working directory (`dir_path`). This file contains the harvest prescription details. Then run simulation using `script/Landscape_SimPilot.R`.
+- `mgmt-areas_temperate-2a-3b.tif` defines the new managed area excluding protected areas (Mapcode 0), and includes management units (Mapcodes 1 to 5) as well as private forest (Mapcode 6).
+
 ---
 
 ## 🎯 Objectives
@@ -19,8 +20,8 @@ These prescriptions aim to:
 
 | Treatment ID | Name                                | System Type                              | Target Stand Age | Harvest Intensity         | Frequency       |
 |--------------|-------------------------------------|------------------------------------------|------------------|---------------------------|-----------------|
-| CPRS         | Clearcut with protection            | Even-aged                                | ≥ 60 yrs         | 95% of mature cohorts     | One-time        |
-| SeedTree     | Seed tree retention                 | Even-aged                                | ≥ 60 yrs         | 100% then 0% of old forest| One-time        |
+| CPRS         | Clearcut with protection            | Even-aged                                | ≥ 40 yrs         | 95% of mature cohorts     | One-time        |
+| SeedTree     | Seed tree retention                 | Even-aged                                | ≥ 40 yrs         | 100% then 0% of old forest| One-time        |
 | CommThin     | Commercial thinning                 | Thinning                                 | ≥ 40 yrs         | 25% of mature cohorts     | One-time        |
 | PC1          | Regular shelterwood                 | Partial cut (even-aged regen)            | 40–100 yrs       | 70%                       | One-time        |
 | PC2          | Irregular shelterwood (slow regen)  | Partial cut (tolerant regen)             | 41–100 yrs       | 50%                       | Repeat (60 yrs) |
@@ -32,142 +33,121 @@ These prescriptions aim to:
 
 Each treatment targets species based on their **shade tolerance**, **regeneration strategy**, and **economic importance**:
 
-| Species Code   | Common Name         | Tolerance | Maturity | Longevity | Primary Treatments                     |
-|----------------|---------------------|-----------|----------|-----------|----------------------------------------|
-| ABIE.BAL       | Balsam fir          | Very tol. | 30       | 150       | All treatments              |
-| ACER.RUB       | Red maple           | Int.      | 10       | 150       | All treatments                         |
-| ACER.SAH       | Sugar maple         | Very tol. | 40       | 300       | CommThin, PC1, PC2, PC3                |
-| BETU.ALL       | Yellow birch        | Mod tol.  | 40       | 300       | CPRS, CommThin, PC1                    |
-| BETU.PAP       | White birch         | Int.      | 20       | 150       | CPRS, CommThin, PC1                    |
-| FAGU.GRA       | Beech               | Very tol. | 40       | 250       | CommThin, PC1, PC2, PC3                |
-| LARI.LAR       | Larch               | Intol.    | 40       | 150       | CPRS, SeedTree                         |
-| PICE.GLA       | White spruce        | Tol.      | 30       | 200       | CommThin, PC1, PC2                     |
-| PICE.MAR       | Black spruce        | Int.      | 30       | 200       | CPRS, SeedTree                         |
-| PICE.RUB       | Red spruce          | Mod tol.  | 30       | 300       | All treatments                         |
-| PINU.BAN       | Jack pine           | Intol.    | 20       | 150       | CPRS, SeedTree                         |
-| PINU.RES       | Red pine            | Intol.    | 40       | 200       | CPRS, SeedTree                         |
-| PINU.STR       | White pine          | Int.      | 20       | 300       | CPRS, SeedTree                         |
-| POPU.TRE       | Trembling aspen     | Intol.    | 20       | 150       | CPRS, CommThin, PC1                    |
-| QUER.RUB       | Red oak             | Mod tol.  | 30       | 250       | CommThin, PC1                          |
-| THUJ.SPP.ALL   | Eastern cedar       | Very tol. | 30       | 300       | CPRS, SeedTree, PC2, PC3               |
-| TSUG.CAN       | Hemlock             | Very tol. | 60       | 300       | All treatments                         |
+| Species Code     | Common Name         | Shade Tolerance  | Maturity (yrs)  | Longevity (yrs)  | Assigned Prescriptions                 |
+|------------------|---------------------|------------------|------------------|------------------|----------------------------------------|
+| ABIE.BAL         | Balsam fir          | Very tolerant    | 30               | 150              | CPRS, SeedTree, CommThin, PC2, PC3     |
+| ACER.RUB         | Red maple           | Intermediate     | 10               | 150              | CPRS, SeedTree, PC1, PC3               |
+| ACER.SAH         | Sugar maple         | Very tolerant    | 40               | 300              | PC1, PC2, PC3                          |
+| BETU.ALL         | Yellow birch        | Mod. tolerant    | 40               | 300              | CPRS, SeedTree, CommThin, PC1          |
+| BETU.PAP         | White birch         | Intermediate     | 20               | 150              | CPRS, SeedTree, CommThin, PC1          |
+| FAGU.GRA         | Beech               | Very tolerant    | 40               | 250              | PC1, PC2, PC3                          |
+| LARI.LAR         | Larch               | Intolerant       | 40               | 150              | CPRS, SeedTree                         |
+| PICE.GLA         | White spruce        | Tolerant         | 30               | 200              | PC1, PC2                               |
+| PICE.MAR         | Black spruce        | Intermediate     | 30               | 200              | CPRS, SeedTree, CommThin               |
+| PICE.RUB         | Red spruce          | Mod. tolerant    | 30               | 300              | CPRS, SeedTree, PC1, PC2, PC3          |
+| PINU.BAN         | Jack pine           | Intolerant       | 20               | 150              | CPRS, SeedTree, CommThin               |
+| PINU.RES         | Red pine            | Intolerant       | 40               | 200              | CPRS, SeedTree, CommThin, PC2          |
+| PINU.STR         | White pine          | Intermediate     | 20               | 300              | CPRS, SeedTree, CommThin, PC2          |
+| POPU.TRE         | Trembling aspen     | Intolerant       | 20               | 150              | CPRS, SeedTree, PC1                    |
+| QUER.RUB         | Red oak             | Mod. tolerant    | 30               | 250              | PC1, PC2, PC3                          |
+| THUJ.SPP.ALL     | Eastern cedar       | Very tolerant    | 30               | 300              | CPRS, SeedTree, PC2, PC3               |
+| TSUG.CAN         | Hemlock             | Very tolerant    | 60               | 300              | CPRS, SeedTree, PC1, PC2, PC3          |
 
 ---
 
 ## 🔧 Harvest Rules by Treatment
 
-This section outlines the harvest rules applied to each prescription in the Biomass Harvest extension for LANDIS-II. Species were selected based on silvicultural characteristics such as shade tolerance, regeneration strategy, and economic value.
-
----
-
 ### 🌲 **CPRS – Clearcut with Regeneration Protection**
 - **Goal:** Remove most merchantable biomass of shade-intolerant and intermediate species.
-- **Rationale:** These species require full sun for regeneration and do not tolerate competition.
-
-#### 🪓 Cohorts Removed:
-- Ages < Maturity: 0%  
-- Ages Maturity–Longevity: 95%
-
-#### 🌿 Target Species:
-- **Intolerant conifers:** PINU.BAN, PICE.MAR, PINU.STR, PINU.RES  
-- **Pioneer hardwoods:** BETU.PAP, POPU.TRE, ACER.RUB  
-- **Other intermediates:** LARI.LAR, THUJ.SPP.ALL, TSUG.CAN, PICE.RUB, BETU.ALL, ABIE.BAL
+- **Cohorts Removed:**  
+  - < Maturity: 0%  
+  - Maturity to Longevity: 95%
 
 ---
 
-### 🌱 **SeedTree – Two-Stage Shelterwood**
-- **Goal:** Retain scattered seed trees to promote natural regeneration.
-- **Rationale:** Seed-bearing individuals are left in place while harvesting younger cohorts.
-
-#### 🪓 Cohorts Removed:
-- All cohorts except oldest: 100%  
-- Oldest (approaching longevity): 0%
-
-#### 🌿 Target Species:
-- Same as CPRS — species that naturally regenerate via seed, such as PICE.MAR, PINU.BAN, POPU.TRE
+### 🌱 **SeedTree – Seed Tree Retention**
+- **Goal:** Retain seed trees to facilitate natural regeneration.
+- **Cohorts Removed:**  
+  - All except oldest: 100%  
+  - Oldest: 0%
 
 ---
 
 ### 🌳 **Commercial Thinning**
-- **Goal:** Reduce stand density and enhance growth of residual trees.
-- **Rationale:** Especially effective for mid-tolerant and tolerant species that benefit from reduced competition.
-
-#### 🪓 Cohorts Removed:
-- Ages < Maturity: 0%  
-- Ages ≥ Maturity: 25%
-
-#### 🌿 Target Species:
-- **Hardwoods:** ACER.SAH, FAGU.GRA, ACER.RUB, QUER.RUB, BETU.PAP, BETU.ALL  
-- **Conifers:** TSUG.CAN, PICE.GLA, PICE.RUB, POPU.TRE
+- **Goal:** Reduce density and promote residual tree growth.
+- **Cohorts Removed:**  
+  - < Maturity: 0%  
+  - ≥ Maturity: 25%
 
 ---
 
-### 🌳 **PC1 – Regular Shelterwood**
-- **Goal:** Promote even-aged regeneration of moderately shade-tolerant species.
-- **Rationale:** Mid-tolerant species respond well to phased overstory removal and light availability.
-
-#### 🪓 Cohorts Removed:
-- < 40 yrs: 0%  
-- 40–100 yrs: 70%  
-- > 100 yrs: 0%
-
-#### 🌿 Target Species:
-- **Hardwoods:** ACER.SAH, ACER.RUB, FAGU.GRA, QUER.RUB, BETU.PAP, BETU.ALL, POPU.TRE  
-- **Conifers:** PICE.RUB, PICE.GLA, TSUG.CAN
+### 🌲 **PC1 – Regular Shelterwood**
+- **Goal:** Prepare for even-aged regeneration with moderate canopy removal.
+- **Cohorts Removed:**  
+  - 40–100 yrs: 70%  
+  - Others: 0%
 
 ---
 
 ### 🌲 **PC2 – Irregular Shelterwood (Slow Regeneration)**
-- **Goal:** Encourage slow, natural regeneration of very shade-tolerant species with moderate canopy removal.
-- **Rationale:** These species regenerate well in shaded environments but require reduced competition.
-
-#### 🪓 Cohorts Removed:
-- ≤ 40 yrs: 0%  
-- 41–100 yrs: 50%  
-- > 100 yrs: 0%
-
-#### 🌿 Target Species:
-- **Conifers:** TSUG.CAN, THUJ.SPP.ALL, ABIE.BAL, PICE.RUB, PICE.GLA  
-- **Hardwoods:** ACER.SAH, FAGU.GRA
+- **Goal:** Regenerate tolerant species through repeated light cuts.
+- **Cohorts Removed:**  
+  - 41–100 yrs: 50%  
+  - Others: 0%
 
 ---
 
-### 🌲 **PC3 – Shelterwood with Permanent Canopy**
-- **Goal:** Maintain continuous canopy while selectively removing senescent trees.
-- **Rationale:** Mimics multi-aged forest dynamics and is ideal for very shade-tolerant species.
-
-#### 🪓 Cohorts Removed:
-- < 70 yrs: 0%  
-- ≥ 70 yrs: 50%
-
-#### 🌿 Target Species:
-- **Conifers:** TSUG.CAN, THUJ.SPP.ALL, ABIE.BAL, PICE.RUB  
-- **Hardwoods:** ACER.SAH, ACER.RUB, FAGU.GRA
+### 🌲 **PC3 – Permanent Canopy Shelterwood**
+- **Goal:** Maintain canopy while removing older, declining cohorts.
+- **Cohorts Removed:**  
+  - ≥ 70 yrs: 50%  
+  - < 70 yrs: 0%
 
 ---
 
 ## 🗺️ Harvest Maps
 
-Output files generated by the LANDIS-II Biomass Harvest extension:
+Output files generated:
 
-- `prescripts-{timestep}.tif`: Raster of harvest prescriptions  
-- `biomass-removed-{timestep}.tif`: Biomass removal raster  
-- `harvest/log.csv`: Log of harvest events  
-- `harvest/summarylog.csv`: Summary of cohorts & biomass harvested  
+- `prescripts-{timestep}.tif`: Spatial raster of treatment codes  
+- `biomass-removed-{timestep}.tif`: Raster of removed biomass  
+- `harvest/log.csv`: Cohort-level harvest log  
+- `harvest/summarylog.csv`: Stand-level harvest summary  
 
 ---
 
-## Harvest Rates Applied
-
-The table below summarizes initial harvest rates. These will be calibrated to match sustainable AAC (allowable annual cut) targets:
+## 📈 Harvest Rates by Management Area
 
 | Management Area | Treatment            | Rate (%)   |
 |------------------|----------------------|------------|
-| 1                | CPRS                 | 0.22648%   |
-| 1                | SeedTree             | 0.00310%   |
-| 1                | CommercialThinning   | 0.02076%   |
-| 1                | PC1                  | 0.07432%   |
-| 1                | PC2                  | 0.15954%   |
-| 1                | PC3                  | 0.22646%   |
+| 1                | CPRS                 | 0.004788   |
+| 1                | PC1                  | 0.001050   |
+| 1                | PC2                  | 0.017556   |
+| 1                | PC3                  | 0.018606   |
+| 2                | CPRS                 | 0.044880   |
+| 2                | CommercialThinning   | 0.002860   |
+| 2                | PC1                  | 0.003410   |
+| 2                | PC2                  | 0.032230   |
+| 2                | PC3                  | 0.026510   |
+| 3                | CPRS                 | 0.003570   |
+| 3                | SeedTree             | 0.001820   |
+| 3                | CommercialThinning   | 0.000175   |
+| 3                | PC1                  | 0.000175   |
+| 3                | PC2                  | 0.008435   |
+| 3                | PC3                  | 0.015680   |
+| 4                | CPRS                 | 0.005760   |
+| 4                | PC2                  | 0.034624   |
+| 4                | PC3                  | 0.023616   |
+| 5                | CPRS                 | 0.099944   |
+| 5                | CommercialThinning   | 0.011408   |
+| 5                | PC1                  | 0.047616   |
+| 5                | PC2                  | 0.017608   |
+| 5                | PC3                  | 0.071424   |
+| 6                | CPRS                 | 0.159500   |
+| 6                | SeedTree             | 0.002000   |
+| 6                | CommercialThinning   | 0.014500   |
+| 6                | PC1                  | 0.052500   |
+| 6                | PC2                  | 0.112000   |
+| 6                | PC3                  | 0.159500   |
 
----
+--- 
