@@ -20,9 +20,9 @@ These prescriptions aim to:
 
 | Treatment ID | Name                                | System Type                              | Target Stand Age | Harvest Intensity         | Frequency       |
 |--------------|-------------------------------------|------------------------------------------|------------------|---------------------------|-----------------|
-| CPRS         | Clearcut with protection            | Even-aged                                | ≥ 40 yrs         | 95% of mature cohorts     | One-time        |
-| SeedTree     | Seed tree retention                 | Even-aged                                | ≥ 40 yrs         | 100% then 0% of old forest| One-time        |
-| CommThin     | Commercial thinning                 | Thinning                                 | ≥ 40 yrs         | 25% of mature cohorts     | One-time        |
+| CPRS         | Clearcut with protection            | Even-aged                                | ≥ Maturity yrs   | 95% of mature cohorts     | One-time        |
+| SeedTree     | Seed tree retention                 | Even-aged                                | ≥ 0 yrs        | 100% then 0% of old forest  | One-time        |
+| CommThin     | Commercial thinning                 | Thinning                                 | ≥ Maturity yrs   | 25% of mature cohorts     | One-time        |
 | PC1          | Regular shelterwood                 | Partial cut (even-aged regen)            | 40–100 yrs       | 70%                       | One-time        |
 | PC2          | Irregular shelterwood (slow regen)  | Partial cut (tolerant regen)             | 41–100 yrs       | 50%                       | Repeat (60 yrs) |
 | PC3          | Shelterwood with permanent canopy   | Multi-aged retention                     | ≥ 70 yrs         | 50% of older cohorts      | Repeat (60 yrs) |
